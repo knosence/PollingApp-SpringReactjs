@@ -19,6 +19,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 public abstract class DataAudit implements Serializable {
 
+
+  private static final long serialVersionUID = 1L;
+
   @CreatedDate
   @Column(nullable = false, updatable = false)
   private Instant createdAt;
