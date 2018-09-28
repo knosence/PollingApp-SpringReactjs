@@ -1,4 +1,4 @@
-package com.knosence.springreact.pollingappspringreact.Models;
+package com.knosence.springreact.pollingappspringreact.Models.audit;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -15,12 +15,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(
-  value = {"createdAt", "updatedAt"},
-  allowGetters = true
-)
+@JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
 
-public abstract class DataAudit implements Serializable{
+public abstract class DataAudit implements Serializable {
 
   @CreatedDate
   @Column(nullable = false, updatable = false)
@@ -30,20 +27,19 @@ public abstract class DataAudit implements Serializable{
   @Column(nullable = false)
   private Instant updatedAt;
 
-
-  public Instant getCreatedAt(){
+  public Instant getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(Instant createdAt){
+  public void setCreatedAt(Instant createdAt) {
     this.createdAt = createdAt;
   }
 
-  public Instant getUpdatedAt(){
+  public Instant getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(Instant updatedAt){
+  public void setUpdatedAt(Instant updatedAt) {
     this.updatedAt = updatedAt;
   }
 
